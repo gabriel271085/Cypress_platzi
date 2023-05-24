@@ -1,0 +1,22 @@
+{
+  "name": "cypress_platzi",
+  "version": "1.0.0",
+  "description": "platzi_testing_docs",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open"
+  },
+  "keywords": [
+    "automation",
+    "cypress"
+  ],
+  "author": "gabrielCayoja",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.12.0"
+  },
+  "dependencies": {
+    "json-server": "^0.17.3",
+    "prettier": "^2.8.8"
+  }
+}
