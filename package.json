@@ -4,7 +4,8 @@
   "description": "platzi_testing_docs",
   "main": "index.js",
   "scripts": {
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "run:server": "json-server --watch db.json" 
   },
   "keywords": [
     "automation",
