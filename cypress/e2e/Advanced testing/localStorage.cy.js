@@ -1,4 +1,6 @@
 describe('LocalStorage', ()=>{
+    
+    
     it('create a task', ()=>{
         cy.visit('https://todo-cypress-iota.vercel.app')
         cy.get('#title').type("Test 1")
@@ -12,13 +14,16 @@ describe('LocalStorage', ()=>{
         cy.contains('Test 1').then (()=>{
             expect(localStorage.getItem('Test 1')).to.exist
         })
-        //remueve la tarea y verifica en el localstorage
-        cy.contains('Remove').click().then(()=>{
+        //remueve la tarea y verifica en el localstorage, se debe considerar que
+        //el localizador es unico porque solo hay un item
+        cy.contains('Remove').click().then(()=>{  
             expect(localStorage.getItem('Test 1')).to.not.exist
         })
-
+        //limpieza del localStorage
         cy.clearLocalStorage('Test 1').should(localStorage=>{
             expect(localStorage.getItem('prop1')).to.be.null
         })
+
+
     })
 })
