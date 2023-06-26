@@ -14,7 +14,7 @@
   "author": "gabrielCayoja",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.14.0",
+    "cypress": "^12.15.0",
     "cypress-xpath": "^2.0.1",
     "mysql": "^2.18.1",
     "prettier": "^2.8.8"

@@ -28,21 +28,20 @@ describe("intercepting network request",()=>{
         // cy.wait("@bulbasaur", { timeout: 20000 });
     
       });
-    
+        //forzar un error nos sirve para saber que pasa con la app cuando
+        //no se transfieren datos desde la db sin necesidad de tocar algo en la misma
       it.only("Prueba de intercept forzando a que falle", () => {
         cy.intercept("GET", "https://pokeapi.co/api/v2/pokemon-species/1", {
-          forceNetworkError: true,
-        }).as("error");
-        cy.visit("https://pokedexpokemon.netlify.app");
-        cy.contains("Bulbasaur")
-          .parent()
-          .parent()
-          .within((element) => {
-            cy.wrap(element).contains("Más detalles").click();
+          forceNetworkError: true,}).as("error")
+        
+          cy.visit("https://pokedexpokemon.netlify.app")
+      
+        cy.contains("Bulbasaur").parent().parent().within((element) => {
+            cy.wrap(element).contains("Más detalles").click()
           });
     
-        cy.wait("@error").should("have.property", "error");
+        cy.wait("@error").should("have.property", "error")
     
-        // cy.wait('@bulbasaur').its('response.statusCode').should('eq', 200)
+        
       });
 })
