@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "cypress:open": "cypress open",
-    "run:server": "json-server --watch db.json"
+    "test:update:snapshot": "cypress open --env updateSnapshots=true",
+    "run:server": "json-server --watch db.json",
+    "variable:enviroment": "cypress open --env ENVIROMENT_VARIABLE=value"
   },
   "keywords": [
     "automation",
@@ -15,6 +17,7 @@
   "license": "ISC",
   "devDependencies": {
     "cypress": "^12.15.0",
+    "cypress-image-snapshot": "^4.0.1",
     "cypress-xpath": "^2.0.1",
     "mysql": "^2.18.1",
     "prettier": "^2.8.8"

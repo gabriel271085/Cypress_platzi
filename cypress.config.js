@@ -1,4 +1,6 @@
 const { defineConfig } = require("cypress");
+const {addMatchImageSnapshotPlugin} =
+require("cypress-image-snapshot/plugin")
 
 module.exports = defineConfig({
   e2e: {
@@ -6,6 +8,7 @@ module.exports = defineConfig({
     experimentalSessionAndOrigin: true,
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      addMatchImageSnapshotPlugin(on, config)
       on('task',{
         log(message){
          console.log('Mensaje del console log del task ' + message)
@@ -17,6 +20,11 @@ module.exports = defineConfig({
       "**/1-getting-started/*.js",
       "**/2-advanced-examples/*.js"
     ],
-    testIsolation: false
+    testIsolation: false,
+
+    env:{
+      user: "username",
+      password:"password"
+    }
   },
 });
